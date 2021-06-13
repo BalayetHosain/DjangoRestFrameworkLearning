@@ -1,8 +1,8 @@
 from django.db.models import fields
-from djangoRestApp.models import *
+from djangoRestApp.models import Article
 from rest_framework import serializers
 
-#Normal serializers
+# #Normal serializers
 # class ArticleSerializer(serializers.Serializer):
 #     title = serializers.CharField(max_length=255)
 #     authorname = serializers.CharField(max_length=255)
@@ -20,10 +20,10 @@ from rest_framework import serializers
 #         instance.save()
 #         return instance
 
-class ArticleSerializer(serializers.Serializer):
+class ArticleSerializer(serializers.ModelSerializer):
     class Meta:
         model = Article
         # fields = '__all__'
-        fields = ['title','authorname','email','date']
+        fields = ['id','title','authorname','email','date']
 
 
